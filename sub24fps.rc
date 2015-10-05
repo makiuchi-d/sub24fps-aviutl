@@ -9,7 +9,7 @@
 //  VERSION INFO
 //
 VS_VIRSION_INFO VERSIONINFO
- FILEVERSION    0,0,1,0
+ FILEVERSION    0,0,1,1
  PRODUCTVERSION 0,0,1
  FILEFLAGSMASK  0x3FL
  FILEFLAGS      0x0L
@@ -22,12 +22,12 @@ VS_VIRSION_INFO VERSIONINFO
         BLOCK "041103A4"
 		{
             VALUE "FileDescription",  "é©ìÆ24fps(ë„óù) Plugin for AviUtl 0.98dà»ç~\0"
-            VALUE "FileVersion",      "0.0.1.0\0"
+            VALUE "FileVersion",      "0.0.1.1\0"
             VALUE "InternalName",     "Substitutes for Auto24FSP\0"
             VALUE "LegalCopyright",   "(C) MakKi\0"
             VALUE "OriginalFilename", "sub24fps.auf\0"
             VALUE "ProductName",      "é©ìÆ24fps(ë„óù)\0"
-            VALUE "ProductVersion",   "0.01\0"
+            VALUE "ProductVersion",   "0.01a\0"
 		}
 	}
     BLOCK "VarFileInfo"

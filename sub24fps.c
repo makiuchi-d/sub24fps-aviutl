@@ -1,6 +1,6 @@
 /*******************************************************************************
 * 	自動24fps(代理)フィルタ
-* 								ver. 0.01
+* 								ver. 0.01a
 * 
 * [2005]
 * 	02/22:	ちょっと使いたくなって作ってみる。
@@ -17,7 +17,9 @@
 * 	      	get_ycp_filtering_cache_exが使えるのは0.98d以降。
 * 	      	0.98b以前ではget_sys_infoのeditpにNULLを渡せない。
 * 	      	…SYS_INFO取れないとバージョンチェックできないじゃんorz
-* 			0.98c以降で正常作動確認、公開(0.01)
+* 	      	0.98c以降で正常作動確認、公開(0.01)
+*	03/13:	キャッシュサイズの見直し(10->5)
+*	      	フィルタフラグ追加(FILTER_FLAG_NO_INIT_DATA) (0.01a)
 * 
 *******************************************************************************/
 #include <windows.h>
@@ -44,6 +46,7 @@ int   check_default[] = { 0, 0 };	// デフォルト
 
 
 FILTER_DLL filter = {
+	FILTER_FLAG_NO_INIT_DATA |	// func_proc()の画像の初期データを作成しない
 	FILTER_FLAG_EX_INFORMATION,
 	NULL,NULL,			// 設定ウインドウのサイズ
 	"自動24fps(代理)",		// フィルタの名前
@@ -69,7 +72,7 @@ FILTER_DLL filter = {
 	func_WndProc,		// 設定ウィンドウプロシージャ
 	NULL,NULL,   		// システムで使用
 	NULL,NULL,   		// 拡張データ領域
-	"自動24fps(代理) ver 0.01 by MakKi",	// フィルタ情報
+	"自動24fps(代理) ver 0.01a by MakKi",	// フィルタ情報
 	NULL,			// セーブ開始直前に呼ばれる関数
 	NULL,			// セーブ終了時に呼ばれる関数
 	NULL,NULL,NULL,	// システムで使用
@@ -270,7 +273,7 @@ BOOL func_init( FILTER *fp )
 	max_h = si.vram_h;
 
 	// AviUtl側キャッシュ初期化
-	fp->exfunc->set_ycp_filtering_cache_size(fp,max_w,max_h,10,NULL);
+	fp->exfunc->set_ycp_filtering_cache_size(fp,max_w,max_h,5,NULL);
 
 	// 独自キャッシュ初期化
 	if(!init_cache(&frame_cache,5,max_w*(max_h+MARGINE*2)*sizeof(PIXEL_YC))){
