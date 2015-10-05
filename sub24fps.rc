@@ -1,0 +1,39 @@
+//////////////////////////////////////////////////////////////////////
+// 	é©ìÆ24fps(ë„óù)		sub24fps.rc
+//	Resource Script
+//////////////////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////////////////////
+//  VERSION INFO
+//
+VS_VIRSION_INFO VERSIONINFO
+ FILEVERSION    0,0,1,0
+ PRODUCTVERSION 0,0,1
+ FILEFLAGSMASK  0x3FL
+ FILEFLAGS      0x0L
+ FILEOS         VOS__WINDOWS32
+ FILETYPE       VFT_DLL
+ FILESUBTYPE    0x0L
+{
+    BLOCK "StringFileInfo"
+	{
+        BLOCK "041103A4"
+		{
+            VALUE "FileDescription",  "é©ìÆ24fps(ë„óù) Plugin for AviUtl 0.98dà»ç~\0"
+            VALUE "FileVersion",      "0.0.1.0\0"
+            VALUE "InternalName",     "Substitutes for Auto24FSP\0"
+            VALUE "LegalCopyright",   "(C) MakKi\0"
+            VALUE "OriginalFilename", "sub24fps.auf\0"
+            VALUE "ProductName",      "é©ìÆ24fps(ë„óù)\0"
+            VALUE "ProductVersion",   "0.01\0"
+		}
+	}
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x411, 932
+    }
+}
+
+
